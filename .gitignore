@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+models/*.bin
+cc.ru.300.vec.gz
+ru_vocab_cache.pkl
