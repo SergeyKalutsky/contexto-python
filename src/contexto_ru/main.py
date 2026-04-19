@@ -44,6 +44,7 @@ def main() -> None:
         vocabulary=vocabulary,
         targets=targets,
     )
+    print(f"[DEBUG] Загаданное слово: {game.target_word}")
     app = ContextoApp(game)
     app.run()
 
