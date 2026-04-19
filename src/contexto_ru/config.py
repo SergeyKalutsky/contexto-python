@@ -11,7 +11,10 @@ class AppConfig:
         self.base_dir = root
         self.vocab_path = root / "data" / "vocab_ru.txt"
         self.targets_path = root / "data" / "targets_ru.txt"
-        self.fasttext_model_path = root / "models" / "cc.ru.300.vec.gz"
-        self.fasttext_model_url = "https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.ru.300.vec.gz"
-        self.embedding_cache_path = root / "models" / "ru_vocab_cache.pkl"
-        self.max_vocabulary_words = 50_000
+
+        # Модель navec (~50 МБ) — намного легче прежней fastText (~1.3 ГБ)
+        self.model_path = root / "models" / "navec_hudlit_v1_12B_500K_300d_100q.tar"
+        self.model_url = (
+            "https://storage.yandexapis.com/natasha-navec/packs/"
+            "navec_hudlit_v1_12B_500K_300d_100q.tar"
+        )

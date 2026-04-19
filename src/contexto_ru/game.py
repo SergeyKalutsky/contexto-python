@@ -1,6 +1,6 @@
 ﻿import random
 
-from .embeddings import FastTextEmbeddings, cosine_similarity
+from .embeddings import WordEmbeddings, cosine_similarity
 from .normalization import normalize_word
 
 
@@ -8,11 +8,11 @@ class GuessResult:
     """Результат одной попытки угадать слово."""
 
     def __init__(self, original_guess: str, normalized_guess: str, similarity: float, rank: int, is_exact: bool):
-        self.original_guess = original_guess    # слово как ввёл пользователь
+        self.original_guess = original_guess      # слово как ввёл пользователь
         self.normalized_guess = normalized_guess  # слово после нормализации
-        self.similarity = similarity            # косинусное сходство (от 0 до 1)
-        self.rank = rank                        # место слова среди всего словаря
-        self.is_exact = is_exact                # True, если слово угадано точно
+        self.similarity = similarity              # косинусное сходство (от 0 до 1)
+        self.rank = rank                          # место слова среди всего словаря
+        self.is_exact = is_exact                  # True, если слово угадано точно
 
 
 class ContextoGame:
@@ -24,7 +24,7 @@ class ContextoGame:
 
     def __init__(
         self,
-        embedding_model: FastTextEmbeddings,
+        embedding_model: WordEmbeddings,
         vocabulary: list[str] | None = None,
         targets: list[str] | None = None,
         target_word: str | None = None,
